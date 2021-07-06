@@ -13,8 +13,11 @@ Amplíe su aplicación permitiendo a los usuarios agregar números de teléfono 
 ```
 En este punto, la aplicación podría verse así. La imagen también muestra el estado de la aplicación con la ayuda de React developer tools:
 
-fullstack content
+![img](https://fullstackopen.com/static/3068a34af61692773a06d60ee93638a9/5a190/12e.png)
+
 Implemente un campo de búsqueda que pueda usarse para filtrar la lista de personas por nombre:
+
+![img](https://fullstackopen.com/static/4b5897029d4c9e2eb61631ca4c1a4f24/5a190/13e.png)
 
 fullstack content
 Puede implementar el campo de búsqueda como un elemento input que se coloca fuera del formulario HTML. La lógica de filtrado que se muestra en la imagen no distingue entre mayúsculas y minúsculas, lo que significa que el término de búsqueda arto también devuelve resultados que contienen Arto con una A mayúscula.
