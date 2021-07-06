@@ -5,21 +5,32 @@ const App = () => {
   const [ newName, setNewName ] = useState('')
 
   //Metodos controladores de Eventos
+
+  //Controlador Input
   const handldePersonChange = (event)=>{
     setNewName(event.target.value);
   }
 
+  //Controlador Form
   const addPerson = (event)=>{
     event.preventDefault();
     let persona1 = {
       name: newName
     }
-    setPersons(persons.concat(persona1));
-    setNewName('')
-    document.getElementById('Input').value = ''
+
+    let found = persons.filter(per=> per.name === persona1.name)
+    
+    if(found.length >0){
+      alert(`${newName} is already added to phonebook`)
+      setNewName('')
+      document.getElementById('Input').value = ''
+    }else{
+      setPersons(persons.concat(persona1));
+      setNewName('')
+      document.getElementById('Input').value = ''
+    }   
 
   }
-
 
   return (
     <div>
