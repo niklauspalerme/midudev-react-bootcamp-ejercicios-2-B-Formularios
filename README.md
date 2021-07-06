@@ -19,7 +19,7 @@ Implemente un campo de búsqueda que pueda usarse para filtrar la lista de perso
 
 ![img](https://fullstackopen.com/static/4b5897029d4c9e2eb61631ca4c1a4f24/5a190/13e.png)
 
-fullstack content
+
 Puede implementar el campo de búsqueda como un elemento input que se coloca fuera del formulario HTML. La lógica de filtrado que se muestra en la imagen no distingue entre mayúsculas y minúsculas, lo que significa que el término de búsqueda arto también devuelve resultados que contienen Arto con una A mayúscula.
 
 NB: Cuando están trabajando en una nueva funcionalidad, a menudo es útil "codificar" algunos datos ficticios en su aplicación, por ejemplo
