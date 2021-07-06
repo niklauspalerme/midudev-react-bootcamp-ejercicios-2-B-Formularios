@@ -1,40 +1,40 @@
 # midudev-react-bootcamp-ejercicios-2-B-Formularios
 
-2.8: La guía telefónica Paso3
-Amplíe su aplicación permitiendo a los usuarios agregar números de teléfono a la guía telefónica. Deberá agregar un segundo elemento input al formulario (junto con su propio controlador de eventos):
+2.7: La guía telefónica Paso2
+Evita que el usuario pueda agregar nombres que ya existen en el directorio telefónico. Los arreglos de JavaScript tienen numerosos métodos adecuados para realizar esta tarea.
 
+Emita una advertencia con el comando alert cuando se intente realizar una acción de este tipo:
+
+
+Codigo Base:
 ```
-<form>
-  <div>name: <input /></div>
-  <div>number: <input /></div>
-  <div><button type="submit">add</button></div>
-</form>
-}
-```
-En este punto, la aplicación podría verse así. La imagen también muestra el estado de la aplicación con la ayuda de React developer tools:
+import React, { useState } from 'react'
 
-![img](https://fullstackopen.com/static/3068a34af61692773a06d60ee93638a9/5a190/12e.png)
-
-Implemente un campo de búsqueda que pueda usarse para filtrar la lista de personas por nombre:
-
-![img](https://fullstackopen.com/static/4b5897029d4c9e2eb61631ca4c1a4f24/5a190/13e.png)
-
-
-Puede implementar el campo de búsqueda como un elemento input que se coloca fuera del formulario HTML. La lógica de filtrado que se muestra en la imagen no distingue entre mayúsculas y minúsculas, lo que significa que el término de búsqueda arto también devuelve resultados que contienen Arto con una A mayúscula.
-
-NB: Cuando están trabajando en una nueva funcionalidad, a menudo es útil "codificar" algunos datos ficticios en su aplicación, por ejemplo
-
-```
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', number: '040-123456' },
-    { name: 'Ada Lovelace', number: '39-44-5323523' },
-    { name: 'Dan Abramov', number: '12-43-234345' },
-    { name: 'Mary Poppendieck', number: '39-23-6423122' }
-  ])
+  const [ persons, setPersons ] = useState([
+    { name: 'Arto Hellas' }
+  ]) 
+  const [ newName, setNewName ] = useState('')
 
-  // ...
+  return (
+    <div>
+      <h2>Phonebook</h2>
+      <form>
+        <div>
+          name: <input />
+        </div>
+        <div>
+          <button type="submit">add</button>
+        </div>
+      </form>
+      <h2>Numbers</h2>
+      ...
+    </div>
+  )
 }
+
+export default App
 ```
 
-Esto evita tener que ingresar datos manualmente en su aplicación para probar su nueva funcionalidad.
+![img](https://fullstackopen.com/static/501199c4a6d7a5702a7bdf31998d5a1d/5a190/10e.png)
+
