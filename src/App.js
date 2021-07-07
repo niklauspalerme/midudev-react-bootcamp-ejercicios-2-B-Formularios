@@ -1,13 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import Filter from './componentes/Filter';
+import Form from './componentes/Form';
+import Agenda from './componentes/Agenda';
 
-//NOTA Sobre el renderizado:
-//Usando los hooks cada vez que un estado cambia renderiza el componente
-//Entonces el filtrado dinamico, ocurre ya que como estamos guardando la info
-//en un estado que se va modificando. Vamos renderizando todo y aparte
-//COmo se creo una variable condicional . Esta se actualiza ya que depende
-//Del estado que estamos actualizando que es el input-filtro 
-//Entonces al aculizarse el estado del filtro. Se actualiza la variable condicional showContact
-//Y luego esa variable lo que vamos hacer en el return es siempre mapearla
 
 const App = () => {
 
@@ -28,7 +23,7 @@ const App = () => {
   //Variable Condicional 
   const showContact = filtro.length === 0
   ? persons 
-  : persons.filter(persona => persona.name.toLowerCase().includes(filtro))
+  : persons.filter(persona => persona.name.toLowerCase().includes(filtro.toLowerCase()))
 
 
   
@@ -85,30 +80,12 @@ const App = () => {
 
   return (
     <div>
-      <h2>Phonebook</h2>
-      <div>
-        Filter: <input onChange={handleFilter}/>
-      </div>
-      <h2>Add new contact</h2>
-      <form onSubmit={addPerson}>
-        <div> 
-          name: <input onChange={handlePersonChange} id="name"/>
-        </div>
-        <br></br>
-        <div>
-          number: <input  onChange={handleNumberChange} id="number"/>
-        </div>
-        <br></br>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-      <h2>Numbers</h2>
-      <ul>
-        {
-          showContact.map( (per,index)=> <li key={index}> Name: {per.name} & Number: {per.number}</li>)
-        }
-      </ul>
+      <Filter handleFilter={handleFilter} name="Filter by Name"/>
+      <Form  addPerson={addPerson} 
+        handlePersonChange={handlePersonChange}
+        handleNumberChange={handleNumberChange}
+        title="Add new Contact"/>
+      <Agenda contacts={showContact} />
     </div>
   )
 }
